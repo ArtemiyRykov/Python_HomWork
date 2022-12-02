@@ -4,11 +4,15 @@
 # (подробности в конце записи семинара).
 # Пример: [1.1, 1.2, 3.1, 5, 10.01] => 0.19
 
-# my_list = [1.1, 1.2, 3.1, 5, 10.01]
-# new_list = [round(i%1,2) for i in lst if i%1 != 0]
-# print(max(new_lst) - min(new_lst))
+my_list = [1.1, 1.2, 3.1, 5, 10.01]
+# my_list = list(map(float, input('Введите вещественные числа через пробел: ').split()))
+new_list = []
+for i in my_list:
+    if i%1 != 0:
+       new_list.append(round(i%1,5))
 
-size = int(input('Введите число: '))
-my_list = []
-for i in range(size):
-    
+print(f'Список: {my_list}\n'
+      f'Значение дробной части\n'
+      f'максимальное: {max(new_list)}\n'
+      f'минимальное: {min(new_list)}\n'
+      f'Разница: {max(new_list) - min(new_list)}')
