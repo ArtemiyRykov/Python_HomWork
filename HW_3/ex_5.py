@@ -5,15 +5,15 @@
 
 k = int(input('Введите число = '))
 
-fibo_nums = []
+fibo = []
 a, b = 1, 1
-for i in range(k+1-1):
-    fibo_nums.append(a)
+for i in range(k):
+    fibo.append(a)
     a, b = b, a + b
 a, b = 0, 1
 for i in range(k+1):
-    fibo_nums.insert(0, a)
+    fibo.insert(0, a)
     a, b = b, a - b
-print(fibo_nums)
+print(fibo)
 
 
