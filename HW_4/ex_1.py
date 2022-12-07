@@ -102,7 +102,7 @@ result = equation_addition(first, sercond)
 print(decode_equation(first))
 print(decode_equation(sercond))
 print(decode_equation(result))
-ggg = decode_equation(result)
+result_txt = decode_equation(result)
 
 with open('equation.txt', 'w') as file:
-    file.write(ggg)
+    file.write(result_txt)
