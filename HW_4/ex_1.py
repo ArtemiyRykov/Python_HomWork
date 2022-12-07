@@ -58,7 +58,7 @@ def decode_equation(equation: dict) -> str:
 
 def encode_equation(equation: str) -> dict:
     new_equation = []
-    equation = equation.replace(' = 0', ' ').replace(' + ', ' ').replace(' - ', ' -').split(' ')
+    equation = equation.replace(' = 0', '').replace(' + ', ' ').replace(' - ', ' -').split(' ')
     for item in equation:
         if not 'x' in item:
             new_equation.append([item, 0])
@@ -82,6 +82,27 @@ def encode_equation(equation: str) -> dict:
         equation_patter[int(item[1])] = int(item[0])
     return equation_patter
 
-res = decode_equation(create_pattern(-10, 10))
-print(res)
-print(encode_equation(res))
+first = create_pattern(-100, 100)
+sercond = create_pattern(-10, 20)
+
+def equation_addition(first: dict, second: dict) -> dict:
+    base = {}
+    base.update(first)
+    base.update(second)
+    for key in base:
+        if first.get(key) and second.get(key):
+            base[key] = first.get(key) + second.get(key)
+        elif first.get(key):
+            base[key] = first.get(key)
+        else:
+            base[key] = second.get(key)
+    return dict(sorted(base.items())[::-1])
+
+result = equation_addition(first, sercond)
+print(decode_equation(first))
+print(decode_equation(sercond))
+print(decode_equation(result))
+ggg = decode_equation(result)
+
+with open('equation.txt', 'w') as file:
+    file.write(ggg)
